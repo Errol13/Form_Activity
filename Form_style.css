@@ -1,39 +1,41 @@
 body {
-				background: #778899;
-				font-family: 'Oswald';			
-			}
-			#sub {
-				color:white;
-				background-color:green;
-			}
-			input[ type="reset"]{
-				color:white;
-				background-color:red;
-			}
-			form {
-				margin-left:42%;
-				margin-top: 40px;
-				background: white;
-				border-radius: 5px;
-				display: inline-block;
-				padding: 20px 20px 20px 20px;
-			}
-			input[ type="text"]{
-				width: 100%;
-			}
-			input[ type="email"]{
-				width: 100%;
-			}
-			input[ type="password"]{
-				width: 100%;
-			}
-			input[ type="date"]{
-				width: 100%;
-			}
-			input[ type="tel"]{
-				width: 100%;
-			}
-			textarea{
-				width: 100%;
-			}
-			
+    background: #778899;
+    font-family: 'Oswald';			
+}
+#sub {
+    color:white;
+    background-color:green;
+}
+input[ type="reset"]{
+    color:white;
+    background-color:red;
+}
+form {
+    margin-left:42%;
+    margin-top: 40px;
+    background: white;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 20px 20px 20px 20px;
+}
+#reg_name {
+    text-align: center;
+}
+input[ type="text"]{
+    width: 100%;
+}
+input[ type="email"]{
+    width: 100%;
+}
+input[ type="password"]{
+    width: 100%;
+}
+input[ type="date"]{
+    width: 100%;
+}
+input[ type="tel"]{
+    width: 100%;
+}
+textarea{
+    width: 100%;
+}
