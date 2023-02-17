@@ -4,11 +4,63 @@
 	<title>Form Activity</title>
 		<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Oswald'>
 		<link rel="stylesheet" href="Form_style.css" type="text/css">
+        <script language="JavaScript" type="text/javascript">
+            function validatePassandAge(){
+                var pass_length = document.myForm.password.value;
+                var wrng_color = "red";
+                var hooray_color = "green";
+                var pass_wrng = "Password must be at least 8 characters.";
+                var password = document.getElementById("p_wrng");
+                if (pass_length.length < 8){
+                    password.innerHTML = pass_wrng + "<br/>";
+                    password.style.color = wrng_color;
+                    password.style.fontSize = "12px";
+                }
+                else {
+                     password.innerHTML = "";
+                }
+
+                var dob = new Date(document.myForm.bday.value);
+                var age_warning = "Minors are not allowed" + "<br/>";
+                var curr = new Date();
+                var currDay = curr.getDate();
+                var currMonth = curr.getMonth();
+                var currYear = curr.getFullYear();
+                var age = currYear - dob.getFullYear();
+                var age_text = document.getElementById("age_wrng");
+                var hry = document.getElementById("hooray");
+                if (dob.getMonth()>currMonth){
+                    age--;
+                }
+                if (dob.getMonth()==currMonth){
+                    if (currDay>dob.getDate()){
+                        age--;
+                    }
+                }
+                console.log(age);
+                if (age < 21){
+                    age_text.innerHTML = age_warning;
+                    age_text.style.color = wrng_color;
+                    age_text.style.fontSize = "12px";
+                }
+                else {
+                    age_text.innerHTML = "";
+                }
+                if (pass_length.length >8 && age >=21){
+                    hry.innerHTML = "Hooray! Your account has been successfully created." + "<br/>";
+                    hry.style.color = hooray_color;
+                    hry.style.fontSize = "12px";
+                    return true;
+                }
+            }
+
+        </script>
 	</head>
 	<body>
 		
-		<form>
-		<h1>Registration Form</h1>
+		<form name="myForm" >
+		<h1 id="reg_name">Registration Form</h1>
+        <span id="hooray"></span>
 		First Name:<br/>
 			<input type="text" name="firstname"/><br/>
 		Last Name:<br>
@@ -18,9 +70,11 @@
 		Email:<br>
 			<input type="email" name="email"/><br/>
 		Password: <br>
-			<input type="password" name="password"/><br/>
+			<input type="password" name="password" /><br/>
+            <span id="p_wrng"></span>
 		Date of Birth:<br>
 			<input type="date" name="bday"/><br/>
+            <span id="age_wrng"></span>
 		Gender:<br>
 			<input type="radio" name="male" value="male">Male
 				<input type="radio" name="female" value="female">Female
@@ -29,7 +83,7 @@
 			<input type="tel" name="mobile" /><br/>
 		Address:<br>
 			<textarea name="address" cols="21" rows="6"></textarea><br/>
-		<input id="sub" type="submit" name="submit" value="Submit"/>
+		<input id="sub" type="button" name="submit" value="Submit" onclick="validatePassandAge()" />
 		<input type="reset" name="reset" value="Reset"/>
 		</form>
 		
